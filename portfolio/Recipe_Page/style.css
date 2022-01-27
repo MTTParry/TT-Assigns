@@ -1,31 +1,155 @@
 * {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Kepler, 'Times New Roman', serif;
     color: rgb(0, 7, 31);
 }
-
+/* -- basic formatting -- */
 body {
     background-color: rgb(198, 241, 221);
+    width: 100%;
+    max-width: 800px;
+    margin: 1% auto;
+    font-size: 20px;;
 }
 
-.top {
-    align-items: center;
-}
-
-.left {
-    background-color: rgb(255, 173, 96);
-    padding: 10px;
-}
-
-.right {
-    background-color: rgb(217, 83, 79);
-    padding: 10px;
-
+#top {
+    width: 100%;
+    padding-bottom: 2%;
 }
 
 h1 {
+    font-size: 50px;
+    max-width: 800px;
     text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.1em;
 }
 
+h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h3,
+    h4 {
+        padding-left: 10px;
+}
+
+
+h3,
+    h4,
+    #right,
+    #left,
+    #steps,
+    #ingredients,
+    #equipment,
+    li  {
+        font-family: Marydale;
+        margin: 0 0;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    overflow: hidden;
+}
+
+figcaption {
+    font-size: 12px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+article,
+    #bottom-container {
+        margin: 0 5%;
+}
+
+#bottom {
+    background-color: rgba(226, 125, 121, 1);
+    padding: 2% 5%;
+}
+
+ #danger {
+    text-decoration: underline;
+ }
+
+#left {
+    background-color: rgb(255, 173, 96);
+}
+
+#right {
+    background-color: rgb(216, 79, 171);
+}
+
+#steps,
+    #ingredients {
+        background-color: rgb(255, 238, 173);
+
+}
+
+#equipment {
+    background-color: khaki;
+}
+
+#ingredients,
+    #steps,
+    #equipment {  
+        padding: 5px;
+        padding-top: 2px;
+        width: 90%%;
+        margin: 5%;
+        font-size: 30px;
+}
+
+#steps {
+    border-radius: 7%;
+}
+
+#ingredients,
+    #equipment {
+        border-radius: 5%;    
+    }
+
+em  {
+    font-family: bc-eric-machat-script, sans-serif;
+    font-weight: 50px !important;
+    font-style: normal;
+    color: rgba(44, 91, 201, 1);
+}
+
+li {
+    padding-top: 0;
+    margin: 0 5%;
+}
+
+p {
+    text-indent: 5%;
+}
+
+#left,
+    #right {
+        width: 90%;
+        margin: 2% auto;
+        border-radius: 2%;
+        padding: 0 2% 2%;
+    }
+
+
+/* -- how links appear -- */
 a[href] {
     color: rgb(0, 100, 250);
 }
@@ -34,22 +158,38 @@ a:hover {
     color: rgb(0, 133, 82);
 }
 
-.ingredients,
-    .steps {
-    background-color: rgb(255, 238, 173);
-    padding: 5px;
-    padding-top: 2px;
-}
 
-.equipment {
-    background-color: khaki;
-    padding: 5px;
-    padding-top: 2px;;
-}
+/* -- Larger Version -- */
 
-figcaption {
-    font-family: sans-serif;
-    font-size: 10px;
-    width: 500px;
-    text-align: center;
+@media screen and (min-width: 768px) and (orientation: landscape) {
+    img {
+        border-radius: 1%;
+        border: 1px groove rgba(0, 7, 31, .5);
+    }
+
+    #ingredients,
+        #equipment,
+        #steps {
+            border-radius: 2%;
+        }
+
+    #left,
+        #right {
+            width: 40%;
+            display: inline-block;
+            margin: 2%;
+            padding: 2%;
+            border-radius: 5%;
+            margin: 1% 2%;
+            min-width: 300px;
+            min-height: 350px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    li {
+        font-size: 20px;
+    }
 }

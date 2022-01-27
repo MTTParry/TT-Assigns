@@ -2,38 +2,41 @@
 <html>
     <head>
         <link href="style.css" rel="stylesheet">
+        <!-- Adobe font links -->
+        <link rel="stylesheet" href="https://use.typekit.net/fzs8lcs.css">
         <title>Mom's First Spaghetti</title>
-    </header>
+    </head>
 
     <body>
-        <top>
-            <h1>Mom's First Spaghetti</h1>
+        <!-- Topper: everything from title to before the actual recipe -->
+        <div id="top">
+            <h1>Mom's First Spaghetti.</h1>
                 <img src="https://www.the-pasta-project.com/wp-content/uploads/best-spaghetti-with-tomato-sauce-ever-La-Devozione-10-640x433.jpg" width=600px>
                     <figcaption>
-                        This beautiful image of spaghetti floating in tomato sauce is from
-                            <a href="https://www.the-pasta-project.com/best-spaghetti-tomato-sauce-ever-la-devozione/" target="_blank">The Pasta Project</a>
-                            and if you're looking for good ways to make pasta, please check them out. Don't do this recipe. <strong>You deserve better</strong>.</figcaption>
+                        Photo Credit:
+                        <a href="https://www.the-pasta-project.com/best-spaghetti-tomato-sauce-ever-la-devozione/" target="_blank">The Pasta Project</a> (a better recipe, by far)
+                    </figcaption>
         
-                <h2>What's so special about this spaghetti?</h2>
-                    <article>
-                        
-                        <p>The first time my mom made spaghetti, it was because her mom was out and needed somebody else to make dinner that night. My mom was the oldest kid and so the responsibility fell to her. Grandma thought, "What's so hard about spaghetti?" and my mom showed her.</p>
-                        <p>My mom did not know why her mom provided two pots and simply cooked it all in one pot.</p>
-                        <p>Long story short, she was never asked to make dinner again.</p>
-                    </article>
-        </top>
+            <h2>What's so special about this spaghetti?</h2>
+                <article id="intro">
+                    <p>The first time my mom made spaghetti, it was because her mom was out and needed somebody else to make dinner that night. My mom was the oldest kid and so the responsibility fell to her. Grandma thought, "What's so hard about spaghetti?" and my mom showed her.</p>
+                    <p>My mom did not know why her mom provided two pots and simply cooked it all in one pot.</p>
+                    <p>Long story short, she was never asked to make dinner again.</p>
+                </article>
+        </div>
 
-        <div class="left">
+        <!-- Lefthand container -->
+        <div id="left">
             <h2>What you need</h2>
-                <div class="ingredients">
+                <div id="ingredients" class="collapse">
                     <h3>Ingredients</h3>
                         <ul>
                             <li>1 jar of Red sauce</li>
                             <li>1 box of uncooked Spaghetti</li>
                         </ul>
-                    </div>
+                </div>
 
-                <div class= "equipment">
+                <div id="equipment" class="collapse">
                     <h3>Equipment</h3>
                         <ul>
                             <li>Stove</li>
@@ -44,9 +47,10 @@
                 </div>
         </div>
 
-        <div class="right">
-            <div class="steps">
-                <h2>Steps</h2>
+        <!-- Righthand container-->
+        <div id="right">
+            <h2>Steps</h2>
+            <div id="steps" class="collapse">
                     <ol>
                         <li>Put pot on stove</li>
                         <li>Turn on burner</li>
@@ -54,16 +58,24 @@
                         <li>Add uncooked spaghetti to pot</li>
                         <li><em>Optional:</em> Stir</li>
                         <li>Cook until it's dinnertime</li>
-                        <li>Serve (<em>we recommend providing steak knives</em>)</li>
+                        <li>Serve <br><em>(we recommend providing steak knives or a trash bag)</em></li>
                     </ol>
                 </div>
-                
-            <h3 class='danger'>Warnings & Recommendations</h3>
 
-                <p><a href="https://kitchenseer.com/can-you-eat-raw-pasta-and-noodles/#:~:text=Raw%20pasta%20is%20hard%20to,pain%2C%20flatulence%2C%20and%20cramps.">Can you eat raw pasta?</a></p>
-                <p>We do not recommend eating uncooked pasta. It probably won't kill you, but it's still not the best choice you can make.</p>
-                <p>However, if you are interested in dubious food, please check out <a href="https://zelda.fandom.com/wiki/Dubious_Food">this article on the Zelda Wiki</a>.</a></p>
-            </div>
+        </div>
+        
+        <!-- Bottom: Warnings, links to other places-->
+        <div id="bottom">
+            <h3 class='danger'>Warnings & Recommendations</h3>
+                <div id="bottom-container" class="collapse">
+                    <p>If you're looking for good ways to make pasta, don't do this recipe. <strong>You deserve better</strong>.</p>
+                    <br>
+                    <p><a href="https://kitchenseer.com/can-you-eat-raw-pasta-and-noodles/#:~:text=Raw%20pasta%20is%20hard%20to,pain%2C%20flatulence%2C%20and%20cramps.">Can you eat raw pasta?</a></p>
+                    <p>We do not recommend eating uncooked pasta. It probably won't kill you, but it's still not the best choice you can make.</p>
+                    <br>
+                    <p>However, if you are interested in dubious food, please check out <a href="https://zelda.fandom.com/wiki/Dubious_Food">this article on the Zelda Wiki</a>.</a></p>
+                </div>
+        </div>
     </body>
 
 </html>

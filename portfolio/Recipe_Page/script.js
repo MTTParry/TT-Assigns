@@ -3,7 +3,7 @@ var coll = document.getElementsByClassName("collapsible");
 for (let i = 0; i < coll.length; i++) {
 //cycles through and applies this functionality to all of the buttons with the "collpasible" class
     coll[i].addEventListener("click", function() {
-    //this.classList.toggle("active");
+    //adds "event listener", which means that clicking one of the buttons will activate the function
         var content = this.nextElementSibling;
         //sibling after button; "this" refers to the button element
         if (content.style.display === "block") {

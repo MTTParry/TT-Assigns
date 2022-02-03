@@ -4,8 +4,10 @@ for (let i = 0; i < coll.length; i++) {
 //cycles through and applies this functionality to all of the buttons with the "collpasible" class
     coll[i].addEventListener("click", function() {
     //adds "event listener", which means that clicking one of the buttons will activate the function
+        console.log(this);    
         var content = this.nextElementSibling;
         //sibling after button; "this" refers to the button element
+        console.log(content);
         if (content.style.display === "block") {
         //if next sibling is displayed
             content.style.display = "none";
@@ -14,5 +16,6 @@ for (let i = 0; i < coll.length; i++) {
             content.style.display = "block";
             //if not block, it changes to block (display)
         }
+        console.log(content);
     });
 }

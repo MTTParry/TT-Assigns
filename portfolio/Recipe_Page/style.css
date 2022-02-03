@@ -110,7 +110,7 @@ article,
     #equipment {  
         padding: 5px;
         padding-top: 2px;
-        width: 90%%;
+        width: 90%;
         margin: 5%;
         font-size: 30px;
 }
@@ -177,17 +177,17 @@ a:hover {
     font-size: 30px;
   }
   
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .collapsible:hover {
-    background-color: #rgb(201, 201, 201);
+    background-color: rgb(201, 201, 201);
   }
   
-  /* Style the collapsible content. Note: hidden by default */
+/* Style the collapsible content. Note: hidden by default */
 .collapse {
     padding: 0 18px;
-    display: none !important; /* -- important to start without being displayed -- */
+    display: none; /* -- important to start without being displayed -- */
     overflow: hidden;
-    background-color: #rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 /* -- Larger Version -- */

@@ -10,7 +10,7 @@ class Event {
         //this.price = price;
         this.availableTickets.push(ticketName, price)
     }
-
+    /*
     allTickets() {
       let allTicketSummary = "All tickets: ";
       for (let i = 0; i <this.availableTickets.length; i++) {
@@ -19,6 +19,7 @@ class Event {
       }
       return allTicketSummary;
     }
+    */
 }
 
 

@@ -3,31 +3,23 @@ import React, { useState } from "react";
 
 export default function Coinflip() {
   const [numberInput, setNumberInput] = useState(1);
+  //to total up the results
+  const [headCount, setHeadCount] = useState(0);
+  const [tailCount, setTailCount] = useState(0);
 
   function onClick(event) {
-    if (numberInput <= 0) {
-      //in case the number is explicitly zero or a negative
-      console.log("There's nothing to flip!");
-    }
-
-    //to total up the results
-    let headCount = 0;
-    let tailCount = 0;
+    setHeadCount(0);
+    setTailCount(0);
 
     for (let i = 1; i <= numberInput; i++) {
       let result = Math.random();
       if (result >= 0.5) {
-        headCount++;
+        setHeadCount(headCount + 1);
         console.log("Heads!");
       } else {
-        tailCount++;
+        setTailCount(tailCount + 1);
         console.log("Tails!");
       }
-    }
-
-    if (numberInput >= 1) {
-      console.log("You got heads " + headCount + " times");
-      console.log("You got tails " + tailCount + " times");
     }
   }
 
@@ -51,7 +43,15 @@ export default function Coinflip() {
       <button type="submit" id="flipper" onClick={onClick}>
         Flip it!
       </button>
-      <p id="resultsOutput"></p>
+      <p id="resultsOutput">
+        {numberInput <= 0
+          ? "Nothing to flip!"
+          : "You got heads " +
+            headCount +
+            " times! You got tails " +
+            tailCount +
+            " times!"}
+      </p>
     </div>
   );
 }

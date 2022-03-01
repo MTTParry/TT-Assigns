@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Books</title>
+</head>
+<body>
+    <div class="container">
+        <hr>
+        <h1>List of Books</h1>
+        <hr>
+        <div>
+            <div class="row" id="books">
+            </div>
+        </div>
+    </div>
+    
+    <div id="editBookModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+    
+                <div class="modal-body">
+                    <!-- Submit button creates a POSt req-->
+                    <form id="editForm" method="POST">
+                        <div class="form-group">
+                            <label for="ISBN">ISBN</label>
+                            <input class="form-control" name="isbn" id="isbn">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input class="form-control" name="title" id="title">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input class="form-control" name="author" id="author">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="pubDate">Published Date</label>
+                            <input class="form-control" name="pubDate" id="pubDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publisher">Publisher</label>
+                            <input class="form-control" name="publisher" id="publisher">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="pageNum">Number of Pages</label>
+                            <input class="form-control" name="pageNum" id="pageNum">
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Our JS file-->
+    <script src="book-api.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "w6_books",
+  "version": "1.0.0",
+  "description": "building a rest API for books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michaela Parry <michaela.t.t.parry@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}

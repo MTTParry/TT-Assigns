@@ -1,5 +1,5 @@
-import "./styles.css";
-import Coinflip from "./Components/coinFlip.js";
+import "./index.css";
+import Coinflip from "./coinFlip.js";
 
 export default function App() {
   return (
@@ -22,3 +22,4 @@ export default function App() {
     </div>
   );
 }
+

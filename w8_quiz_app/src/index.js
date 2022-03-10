@@ -26,23 +26,31 @@ async function fetchData() {
   }
 }
 
+//rendering the data from the API call
 async function renderData() {
   let results = await fetchData();
 
-  const container = document.getElementById("root");
-  const ul =document.createElement("ul");
-  ul.style.padding = "0";
+  const container = document.getElementById("root"); //where in html
+  const ul = document.createElement("ul"); //make an UL
+  ul.style.padding = "0"; //gets rid of default padding
 
   for (let object in results) {
+    //create Qs & As
     let question = results[object].question;
     let correct = results[object].correct_answer;
+    //where to render Qs & As & breaks
     let liquestion = document.createElement("li");
     let lianswer = document.createElement("li");
+    let lispace = document.createElement("br");
+    //connect where to render with what to render
     liquestion.innerHTML = question;
     lianswer.innerHTML = correct;
     lianswer.style.listStyle = "none";
+    //appending items to the order list
     ul.appendChild(liquestion);
     ul.appendChild(lianswer);
+    ul.appendChild(lispace);
+    //<br/> added for readability
   }
   container.appendChild(ul);
 }

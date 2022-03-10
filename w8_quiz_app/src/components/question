@@ -1,0 +1,14 @@
+
+export default function Questions() {
+    return (
+        <div className="question">
+            <form onSubmit={handleSubmit}>
+                
+
+
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    )
+}

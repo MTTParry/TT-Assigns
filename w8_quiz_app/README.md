@@ -1,3 +1,8 @@
+# QUIZ APP
+It displays 10 random facts and tells you if they are true or false.
+The facts change each time you refresh the page, because the it does the API call again.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

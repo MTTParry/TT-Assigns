@@ -4,68 +4,73 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//API, 10 Qs, True/False
-const URL = "https://opentdb.com/api.php?amount=10&type=boolean";
+// //API, 10 Qs, True/False
+// const URL = "https://opentdb.com/api.php?amount=10&type=boolean";
 
-//API call
-async function fetchData() {
-  try {
-    const response = await fetch(URL);
-    //fetch data
+// //API call
+// async function fetchData(url) {
+//   try {
+//     const response = await fetch(url);
+//     //fetch data
 
-    let data = await response.json();
-    console.log(data);
-    //storing data as a JSON
+//     let data = await response.json();
+//     console.log(data);
+//     //storing data as a JSON
 
-    return data.results;
-    //return the data for the function
-  } catch (e) {
-    console.log(e.message); //failed to fetch
-    return "fail";
-    //if the data fails to fetch then the data is the word  "fail"
-  }
-}
+//     return data.results;
+//     //return the data for the function
+//   } catch (e) {
+//     console.log(e.message); //failed to fetch
+//     return "fail";
+//     //if the data fails to fetch then the data is the word  "fail"
+//   }
+// }
 
-//rendering the data from the API call
-async function renderData() {
-  let results = await fetchData();
+// //rendering the data from the API call
+// async function renderData(url, container) {
+//   let results = await fetchData(url);
 
-  const container = document.getElementById("root"); //where in html
-  const ul = document.createElement("ul"); //make an UL
-  ul.style.padding = "0"; //gets rid of default padding
+//   for (let result of results) {
+//     let qb = questionBlock(result);
+//     container.appendChild(qb); //renders it
+//     console.log(qb);
+//   }
+// }
 
-  for (let object in results) {
-    //create Qs & As
-    let question = results[object].question;
-    let correct = results[object].correct_answer;
-    //where to render Qs & As & breaks
-    let liquestion = document.createElement("li");
-    let lianswer = document.createElement("li");
-    let lispace = document.createElement("br");
-    //connect where to render with what to render
-    liquestion.innerHTML = question;
-    lianswer.innerHTML = correct;
-    lianswer.style.listStyle = "none";
-    //appending items to the order list
-    ul.appendChild(liquestion);
-    ul.appendChild(lianswer);
-    ul.appendChild(lispace);
-    //<br/> added for readability
-  }
-  container.appendChild(ul);
-}
-
-renderData();
+// export function questionBlock(result) {
+//   const div = document.createElement("div");
+//     //create Qs & As
+//   let question = result.question;
+//   let correct = result.correct_answer;
+//   //where to render Qs & As & breaks
+//   let liquestion = document.createElement("p");
+//   let lianswer = document.createElement("p");
+//   let lispace = document.createElement("br");
+//   //connect where to render with what to render
+//   liquestion.innerHTML = question;
+//   lianswer.innerHTML = correct;
+//   //appending items to the order list
+//   div.appendChild(liquestion);
+//   div.appendChild(lianswer);
+//   div.appendChild(lispace);
+//   //<br/> added for readability
+//   return div;
+// }
 
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+// const container = document.getElementById("root"); //where in html
+// container.innerHTML = "";
+// renderData(URL, container);
 
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

@@ -1,12 +1,18 @@
 
 const Questions = props => {
+    //this function fixes the punctuation issues
+    function decodeEntity(inputStr) {
+        var textarea = document.createElement("textarea");
+        textarea.innerHTML = inputStr;
+        return textarea.value;
+    }
+    
+
     let questions = props.questions;
     let answers = props.correct_answers;
 
-    // console.log(questions, "Qs");
-    // console.log(answers, "As");
-
-
+    console.log(questions, "Qs");
+    console.log(answers, "As");
 
     return <>
         {
@@ -16,7 +22,7 @@ const Questions = props => {
             //if questions did load
             questions.map((question,index) =>
                 <div key={index} className="card">
-                    <p>{question}</p>
+                    <p>{decodeEntity(question)}</p>
                     <p>{answers[index]}</p>
                 </div>
             )

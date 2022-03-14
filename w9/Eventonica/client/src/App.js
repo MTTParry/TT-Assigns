@@ -1,6 +1,7 @@
 import calendar from "./calendar.png";
 import "./App.css";
 import Users from "./components/Users";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,23 +16,9 @@ function App() {
           <section className="user-management">
             <h2>User Management</h2>
 
-            <ul id="users-list">
-              <Users />
-              {/* display all existing Users here */}
-              <li>...</li>
-            </ul>
+            <Users />
 
-            <div>
-              <h3>Add User</h3>
-              <form id="add-user" action="#">
-                <fieldset>
-                  <label>Name</label>
-                  <input type="text" id="add-user-name" />
-                </fieldset>
-                {/* Add more form fields here */}
-                <input type="submit" value="Add" />
-              </form>
-            </div>
+            
 
             <div>
               <h3>Delete User</h3>
@@ -101,18 +88,7 @@ function App() {
         </aside>
       </main>
 
-      <footer>
-        <div>
-          Star Calendar favicon made by
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-            Freepik
-          </a>
-          Find your own on
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            FlatIcon.com
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

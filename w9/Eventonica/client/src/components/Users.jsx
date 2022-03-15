@@ -15,7 +15,7 @@ const Users = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newUser = { id: id, name: name, email: email };
+        const newUser = { id, name, email };
         setUsers([...users, newUser]);
       };
       
@@ -36,7 +36,7 @@ const Users = () => {
 
             <div>
                 <h3>Add User</h3>
-                <form id="add-user" action="#">
+                <form id="add-user" action="#" onSubmit={handleSubmit}>
                     <fieldset>
                         <label>Name</label>
                         <input 
@@ -67,8 +67,7 @@ const Users = () => {
 
                 <input 
                     type="submit" 
-                    value="Add" 
-                    onSubmit={handleSubmit}
+                    value="Add"
                     />
 
                 </form>

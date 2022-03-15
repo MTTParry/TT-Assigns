@@ -2,14 +2,8 @@ import calendar from "./calendar.png";
 import "./App.css";
 import Users from "./components/Users";
 import Footer from "./components/Footer";
-import DeleteUser from "./components/DeleteUser";
 
 function App() {
-  const deleteUser = (deleteId) => {
-    const newUsers = users.filter((i) => i.id !== deleteId);
-    setUsers(newUsers);
-  };
-
 
   return (
     <div className="App">
@@ -24,9 +18,7 @@ function App() {
             <h2>User Management</h2>
 
             <Users />
-
-            <DeleteUser />
-
+          
             
           </section>
 

@@ -34,6 +34,7 @@ const Users = () => {
         setName("");
         setEmail("");
         setId("");
+        console.log(users);
     };
 
     // Delete User

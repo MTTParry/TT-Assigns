@@ -22,8 +22,8 @@ const ReduceEventActions = Object.freeze({
 const reduceEvent = (editingEvent, action) => {
     switch (action.type) {
         case ReduceEventActions.EditName:
-            return {...editingEvent, name = action.payload}
-        case ReduceEventActions.EditName:
+            return {...editingEvent, name = action.name}
+        case ReduceEventActions.EditDate:
             // put lots of logic around making sure it's a date and not something like "pizza"
         case ReduceEventActions.ClearAll:
             return emptyEvent;
@@ -87,8 +87,9 @@ const Events = () => {
         const newEvent = { eventId, eventName, eventDate, eventDescription, eventCategory };
 
         setEvents([...events, newEvent]);
-        reduceEvent({ type: "clear" });
+        reduceEvent({ type: ReduceEventActions.ClearAll });
         
+        // Example of something another programmer could do to mess with your code
         setEventCategory("funeral");
         
         setEventName('');
@@ -121,7 +122,7 @@ const Events = () => {
                     id="add-event-name"
                     placeholder="Virtual corgi meetup"
                     value={editableEvent.name}
-                    onChange={(e) => reduceEvent({ type: "editName", payload: e.target.value })}
+                    onChange={(e) => reduceEvent({ type: ReduceEventActions.EditName, name: e.target.value })}
                     />
                     <br/>
 

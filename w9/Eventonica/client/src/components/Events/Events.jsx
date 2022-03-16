@@ -1,5 +1,38 @@
 import { useState } from "react";
 
+const emptyEvent = {
+        id: "",
+        name: "",
+        date: "",
+        description: "",
+        category: "",
+    };
+
+const EventCatories = Object.freeze({
+    Party: 'Party',
+    Concert: 'Concert'
+});
+
+const ReduceEventActions = Object.freeze({
+    EditName: "EditName",
+    EditDate: "EditDate",
+    ClearAll: "ClearAll"
+});
+
+const reduceEvent = (editingEvent, action) => {
+    switch (action.type) {
+        case ReduceEventActions.EditName:
+            return {...editingEvent, name = action.payload}
+        case ReduceEventActions.EditName:
+            // put lots of logic around making sure it's a date and not something like "pizza"
+        case ReduceEventActions.ClearAll:
+            return emptyEvent;
+        default:
+            throw new Error();
+    }
+    
+}
+
 const Events = () => {
     const event1 = {
         id: "1",
@@ -27,6 +60,7 @@ const Events = () => {
 
     // Events
     const [events, setEvents] = useState([event1, event2, event3]);
+    const [editableEvent, reduceEvent] = useReducer(reduceEvent, emptyEvent);
 
     // For Adding Events
     const [eventName, setEventName] = useState('');
@@ -53,6 +87,10 @@ const Events = () => {
         const newEvent = { eventId, eventName, eventDate, eventDescription, eventCategory };
 
         setEvents([...events, newEvent]);
+        reduceEvent({ type: "clear" });
+        
+        setEventCategory("funeral");
+        
         setEventName('');
         setEventId('');
         setEventDate('');
@@ -82,8 +120,8 @@ const Events = () => {
                     type="text"
                     id="add-event-name"
                     placeholder="Virtual corgi meetup"
-                    value={eventName}
-                    onChange={(e) => setEventName(e.target.value)}
+                    value={editableEvent.name}
+                    onChange={(e) => reduceEvent({ type: "editName", payload: e.target.value })}
                     />
                     <br/>
 
@@ -93,7 +131,10 @@ const Events = () => {
                         id="add-event-date"
                         placeholder="2021-12-31"
                         value={eventDate}
-                        onChange={(e) => setEventDate(e.target.value)}
+                        onChange={(e) => {
+                            // do that date checking logic here
+                            setEventDate(e.target.value)
+                        }}
                     />
                     <br/>
 
@@ -112,6 +153,7 @@ const Events = () => {
                         type="text"
                         id="add-event-category"
                         value={eventCategory}
+                        options={EventCategories.allKeys()}
                         onChange={(e) => setEventCategory(e.target.value)}
                     />
                     <br/>

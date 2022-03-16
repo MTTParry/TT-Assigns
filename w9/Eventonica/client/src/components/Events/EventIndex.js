@@ -1,32 +1,63 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useReducer} from "react";
 import EventsList from "./EventsList";
 
-const Events = () => {
-    //Mock Events
-    const emptyEvent = {
-        id: "",
-        name: "",
-        date: null,
-        description: "",
-        category: "",
-    };
+// Empty Event
+const initialFormState = {
+    id: "",
+    name: "",
+    date: "",
+    description: "",
+    category: "",
+};
 
+ //potentially export
+const reducer = (state, action) => {
+  console.log(`The action is ${JSON.stringify(action)} and the type ${action.type}`)
+  switch (action.type) {
+    // case "HANDLE INPUT TEXT":
+    //   return {
+    //     ...state,
+    //     [action.field]: action.payload,
+    //   };
+    case "editID":
+      console.log(`Dispatched editID with ${action.payload}`);
+      return { ...state, id: action.payload};
+    case "editName":
+      console.log(`Dispatched editName with ${action.payload}`);
+      return { ...state, name: action.payload};
+    case "editDescription":
+      console.log(`Dispatched editCategory with ${action.payload}`);
+      return { ...state, description: action.payload};
+    case "editDate":
+      console.log(`Dispatched editDate with ${action.payload}`);
+      return { ...state, date: action.payload};
+    case "editCategory":
+      console.log(`Dispatched editCategory with ${action.payload}`);
+      return { ...state, category: action.payload};
+    case "resetForm":
+      return initialFormState;
+    default:
+      return state;
+  }
+};
+
+
+const Events = () => {  
+  //Mock Events  
     const event1 = {
         id: "1",
         name: "Birthday",
         date: "2021-09-01",
         description: "A birthday party for my best friend",
         category: "Celebration",
-    };
-
+      };
     const event2 = {
         id: "2",
         name: "Graduation",
         date: "2021-08-01",
         description: "The class of 2021 graduates from East High",
         category: "Education",
-    };
-
+      };
     const event3 = {
         id: "3",
         name: "JS Study Session",
@@ -38,26 +69,17 @@ const Events = () => {
     // Events
     const [events, setEvents] = useState([event1, event2, event3]);
 
-
-    // For Adding Events
-    const [eventName, setEventName] = useState('');
-    const [eventId, setEventId] = useState('');
-    const [eventDate, setEventDate] = useState('');
-    const [eventDescription, setEventDescription] = useState('');
-    const [eventCategory, setEventCategory] = useState('');
+    //useReduce
+    const [state, dispatch] = useReducer(reducer, initialFormState);
 
     // New Events
     const handleAddEvents = (e) => {
         e.preventDefault();
-        const newEvent = { id: eventId, name: eventName, date: eventDate, description: eventDescription, category: eventCategory };
-
-        setEvents([...events, newEvent]);
-
-        setEventName('');
-        setEventId('');
-        setEventDate('');
-        setEventDescription('');
-        setEventCategory('');
+        console.log(state);
+        setEvents([...events, state]);
+        dispatch ({
+          type: "resetForm"
+        });
     };
 
 
@@ -81,8 +103,12 @@ const Events = () => {
                       type="text"
                       id="add-event-name"
                       placeholder="Virtual corgi meetup"
-                      value={eventName}
-                      onChange={(e) => setEventName(e.target.value)}
+                      value={state.name}
+                      onChange={(e) => 
+                        dispatch({ 
+                          type: "editName", 
+                          payload: e.target.value})
+                        }
                       />
                       <br/>
 
@@ -91,8 +117,12 @@ const Events = () => {
                           type="date"
                           id="add-event-date"
                           placeholder="2021-12-31"
-                          value={eventDate}
-                          onChange={(e) => setEventDate(e.target.value)}
+                          value={state.date}
+                          onChange={(e) => 
+                            dispatch({ 
+                              type: "editDate", 
+                              payload: e.target.value})
+                            }
                       />
                       <br/>
 
@@ -100,9 +130,13 @@ const Events = () => {
                       <input
                           type="text"
                           id="add-event-description"
-                          placeholder=""
-                          value={eventDescription}
-                          onChange={(e) => setEventDescription(e.target.value)}
+                          placeholder="Describe the event"
+                          value={state.description}
+                          onChange={(e) => 
+                            dispatch({ 
+                              type: "editDescription", 
+                              payload: e.target.value})
+                            }
                       />
                       <br/>
 
@@ -110,8 +144,13 @@ const Events = () => {
                       <input
                           type="text"
                           id="add-event-category"
-                          value={eventCategory}
-                          onChange={(e) => setEventCategory(e.target.value)}
+                          placeholder="E.g., 'social'"
+                          value={state.category}
+                         onChange={(e) => 
+                          dispatch({ 
+                            type: "editCategory", 
+                            payload: e.target.value})
+                          }
                       />
                       <br/>
 
@@ -120,14 +159,24 @@ const Events = () => {
                           type="number"
                           min="1"
                           id="add-event-id"
-                          value={eventId}
-                          onChange={(e) => setEventId(e.target.value)}
+                          value={state.id}
+                          onChange={(e) => 
+                            dispatch({ 
+                              type: "editID", 
+                              payload: e.target.value})
+                            }
                       />
 
                   </fieldset>
                   {/* Add more form fields here */}
                   <input type="submit" />
                 </form>
+            </div>
+
+            <div>
+            <h4>Current State:</h4>
+              {/* Show state for visual debugging */}
+              {JSON.stringify(state, null, 2)}
             </div>
           </section>
     )

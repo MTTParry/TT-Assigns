@@ -1,5 +1,6 @@
 import React, { useState, useReducer} from "react";
 import EventsList from "./EventsList";
+import DeleteEvent from "./DeleteEvent";
 
 // Empty Event
 const initialFormState = {
@@ -72,7 +73,7 @@ const Events = () => {
     //useReduce
     const [state, dispatch] = useReducer(reducer, initialFormState);
 
-    // New Events
+    // Add/New Events
     const handleAddEvents = (e) => {
         e.preventDefault();
         console.log(state);
@@ -82,6 +83,13 @@ const Events = () => {
         });
     };
 
+
+    // Delete Event
+    const handleDeleteEvent = (deleteEvent) => {
+      const deleteEvents = events.filter((event) => event.id !== deleteEvent);
+      console.log(deleteEvents);
+      setEvents(deleteEvents);
+    };
 
     return (
         <section className="event-management">
@@ -178,6 +186,9 @@ const Events = () => {
               {/* Show state for visual debugging */}
               {JSON.stringify(state, null, 2)}
             </div>
+
+            <DeleteEvent handleDeleteEvent={handleDeleteEvent} />
+
           </section>
     )
 };
